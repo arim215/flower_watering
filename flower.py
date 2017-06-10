@@ -27,10 +27,11 @@ def setup_gpio():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
     GPIO.setup(7, GPIO.OUT, initial=GPIO.HIGH) # Tell the program you want to use pin number 7 as output. Relay is ACTIVE LOW, so OFF is HIGH
-    GPIO.add_event_detect(15, GPIO.RISING, activate_goal_light, 5000)
+    GPIO.setup(15.GPIO.IN)
+    GPIO.add_event_detect(15, GPIO.RISING, activate_pump, 5000)
 
 
-def activate_water(gpio_event_var=0):
+def activate_pump():
     """ Function to activate GPIO for goal light and plar random audio clip. """
 
     GPIO.output(7, GPIO.LOW) #Turn on pump
