@@ -6,7 +6,7 @@ import os
 import RPi.GPIO as GPIO
 
 
-def sleep(sleep_period):
+"""def sleep(sleep_period):
     """ Function to sleep after watering."""
 
     # Get current time
@@ -18,7 +18,7 @@ def sleep(sleep_period):
     sleep = next_day - now
     sleep = sleep.total_seconds()
     time.sleep(sleep)
-
+"""
 
 def setup_gpio():
     """ Function to setup raspberry pi GPIO mode and warnings. PIN 7 OUT"""
@@ -27,8 +27,8 @@ def setup_gpio():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
     GPIO.setup(7, GPIO.OUT, initial=GPIO.HIGH) # Tell the program you want to use pin number 7 as output. Relay is ACTIVE LOW, so OFF is HIGH
-    GPIO.setup(15.GPIO.IN)
-    GPIO.add_event_detect(15, GPIO.RISING, activate_pump, 5000)
+    GPIO.setup(15.GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    #GPIO.add_event_detect(15, GPIO.RISING, activate_pump, 5000)
 
 
 def activate_pump():
@@ -38,6 +38,7 @@ def activate_pump():
     time.sleep(5)
     GPIO.output(7, GPIO.HIGH) #Turn off pump
 
+    
 
 def cleanup_gpio():
     """ Function to cleanup raspberry pi GPIO at end of code """
@@ -49,14 +50,10 @@ def cleanup_gpio():
 
 if __name__ == "__main__":
 
-try:
-    setup_gpio()
+setup_gpio()
+if(GPIO.input(15)==1):
     activate_water()
-    sleep()
-
-except KeyboardInterrupt:
-    print("\nCtrl-C pressed")
-    cleanup_gpio()
+cleanup_gpio()
 
 
 
