@@ -1,4 +1,11 @@
 # flower_watering
+
+[![GitHub release](https://img.shields.io/github/release/arim215/flower_watering.svg)](https://github.com/arim215/nhl_goal_light/releases)
+[![closed pull requests](https://img.shields.io/github/issues-pr-closed/arim215/flower_watering.svg)](https://github.com/arim215/nhl_goal_light/pulls?q=is%3Apr+is%3Aclosed)
+[![Libraries.io for GitHub](https://img.shields.io/librariesio/github/arim215/flower_watering.svg)](https://github.com/arim215/nhl_goal_light/blob/master/requirements.txt)
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/b2366c7edf794073a3c5061171551fbe/badge.svg)](https://www.quantifiedcode.com/app/project/b2366c7edf794073a3c5061171551fbe)
+[![license](https://img.shields.io/github/license/arim215/flower_watering.svg)](https://github.com/arim215/nhl_goal_light/blob/master/LICENSE)
+
 Pythong code to automate flower watering
 
 ## Motivation
