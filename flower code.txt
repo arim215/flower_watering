@@ -1,8 +1,8 @@
 int sensor1_pin =D2;
 int sensor2_pin =D3;
-int sensor3_pin =D4;
-int sensor4_pin =D5;
-int sensor5_pin =D6;
+int sensor3_pin =D5;
+int sensor4_pin =D6;
+int sensor5_pin =D7;
 int relay_pin=D1;
 int reset_pin=D0;
 int sleepSeconds = 43200;
@@ -10,7 +10,7 @@ int sleepSeconds = 43200;
 int average;
 
 void setup() {
-  pinMode(BUILTIN_LED, OUTPUT);
+  //pinMode(BUILTIN_LED, OUTPUT);
   pinMode(relay_pin, OUTPUT);
   pinMode(sensor1_pin, INPUT);
   pinMode(sensor2_pin, INPUT);
@@ -40,7 +40,7 @@ void loop() {
   }
   
   if(average >= 3) {
-	digitalWrite(BUILTIN_LED, HIGH);
+	//digitalWrite(BUILTIN_LED, HIGH);
 	digitalWrite(relay_pin, HIGH);
 	while(average >=3){
 		average=0;
@@ -61,10 +61,10 @@ void loop() {
 		}
 		delay(500);
 	}
-	digitalWrite(BUILTIN_LED, LOW);
+	//digitalWrite(BUILTIN_LED, LOW);
 	digitalWrite(relay_pin, LOW);
   }
-  Serial.println("Sleep for %d seconds\n\n", sleepSeconds);  
+  Serial.println("Sleep for 10 seconds");  
   delay(1000);
   // convert to microseconds
   ESP.deepSleep(sleepSeconds * 1000000);
